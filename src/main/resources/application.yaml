@@ -1,0 +1,23 @@
+logging:
+  level:
+    io.fds.managesystem: debug
+
+spring:
+  application:
+    name: ManagementSystem
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:db;MODE=MYSQL
+    username: sa
+    password:
+  jpa:
+    generate-ddl: 'true'
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        use_sql_comments: true
+server:
+  port: 8500
