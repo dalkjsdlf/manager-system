@@ -1,23 +1,37 @@
+debug: true
+management:
+  endpoints:
+    web:
+      exposure:
+        exclude: "*"
+
 logging:
   level:
-    io.fds.managesystem: debug
+    io.fds.managesystem : debug
+    org.springframework.web.servlet: debug
+    org.hibernate.type.descriptor.sql.internal: trace
+    org.springframework.beans.factory.support.DefaultListableBeanFactory: ERROR
+    org.springframework.boot.autoconfigure: ERROR
+
 
 spring:
   application:
-    name: ManagementSystem
-  datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:db;MODE=MYSQL
-    username: sa
-    password:
-  jpa:
-    generate-ddl: 'true'
-    hibernate:
-      ddl-auto: create
-    properties:
-      hibernate:
-        show_sql: true
-        format_sql: true
-        use_sql_comments: true
+    name: manage-system
+
 server:
   port: 8500
+
+---
+spring:
+  profiles:
+    group:
+      local: local_profile
+      dev: dev_profile
+      cbt: cbt_profile
+      prod: prod_profile
+default:
+  string: default property
+
+aladin:
+  api:
+    key: ttbdalkjsdlf2332001

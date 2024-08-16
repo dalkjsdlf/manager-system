@@ -1,0 +1,26 @@
+spring:
+  config:
+    activate:
+      on-profile: local_profile
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/manager
+    username: dorris
+    password: dusghchl3891!
+  jpa:
+    generate-ddl: 'true'
+    defer-datasource-initialization: true
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+        use_sql_comments: true
+        hibernate.default_batch_fetch_size: 100
+    database-platform: org.hibernate.dialect.MariaDBDialect
+    database: mysql
+  sql:
+    init:
+      mode: always
