@@ -7,7 +7,7 @@ management:
 
 logging:
   level:
-    io.fds.managesystem : debug
+    io.ratel.managesystem : debug
     org.springframework.web.servlet: debug
     org.hibernate.type.descriptor.sql.internal: trace
     org.springframework.beans.factory.support.DefaultListableBeanFactory: ERROR
