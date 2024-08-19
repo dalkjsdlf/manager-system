@@ -1,0 +1,32 @@
+services:
+  msqlbgd:
+    image: mysql:8.0 # MySQL 이미지와 버전
+    container_name: msqlbgd8
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: dusghchl3891! # 루트 비밀번호 설정
+      MYSQL_DATABASE: bookgarden         # 생성할 데이터베이스 이름
+      MYSQL_USER: bgdown                 # 사용자 이름
+      MYSQL_PASSWORD: dusghchl3891!      # 사용자 비밀번호
+    ports:
+      - "3306:3306" # 호스트와 컨테이너 간 포트 매핑
+    volumes:
+      - msqlbgd:/var/lib/mysql # 데이터 지속성을 위해 볼륨 사용
+
+  msqlacct:
+    image: mysql:8.0 # MySQL 이미지와 버전
+    container_name: msqlacct8
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: dusghchl3891! # 루트 비밀번호 설정
+      MYSQL_DATABASE: account         # 생성할 데이터베이스 이름
+      MYSQL_USER: accown                 # 사용자 이름
+      MYSQL_PASSWORD: dusghchl3891!      # 사용자 비밀번호
+    ports:
+      - "3307:3306" # 호스트와 컨테이너 간 포트 매핑
+    volumes:
+      - msqlacct:/var/lib/mysql # 데이터 지속성을 위해 볼륨 사용
+
+volumes:
+  msqlbgd:
+  msqlacct:
