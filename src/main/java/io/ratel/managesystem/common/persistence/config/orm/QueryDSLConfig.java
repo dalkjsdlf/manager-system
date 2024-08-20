@@ -1,4 +1,4 @@
-package io.ratel.managesystem.common.persistence;
+package io.ratel.managesystem.common.persistence.config.orm;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;

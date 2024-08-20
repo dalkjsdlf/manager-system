@@ -1,4 +1,4 @@
-package io.ratel.managesystem.common.entity;
+package io.ratel.managesystem.common.persistence.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;

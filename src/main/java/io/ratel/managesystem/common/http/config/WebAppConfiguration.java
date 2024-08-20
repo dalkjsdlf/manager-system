@@ -1,4 +1,4 @@
-package io.ratel.managesystem.common.web;
+package io.ratel.managesystem.common.http.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
