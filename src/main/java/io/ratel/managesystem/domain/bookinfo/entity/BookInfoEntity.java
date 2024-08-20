@@ -1,6 +1,6 @@
 package io.ratel.managesystem.domain.bookinfo.entity;
 
-import io.ratel.managesystem.common.entity.AuditableFields;
+import io.ratel.managesystem.common.persistence.entity.AuditableFields;
 import io.ratel.managesystem.domain.bookinfo.model.Category;
 import jakarta.persistence.*;
 import lombok.Getter;

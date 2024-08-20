@@ -1,8 +1,8 @@
-package io.ratel.managesystem.common.exception;
+package io.ratel.managesystem.common.aop;
 
 import io.ratel.managesystem.common.exception.BusinessErrorResult;
 import io.ratel.managesystem.common.exception.BusinessException;
-import io.ratel.managesystem.common.exception.ErrorResponse;
+import io.ratel.managesystem.common.http.response.ErrorResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -36,22 +36,22 @@ public class ApiControllerAdvice extends ResponseEntityExceptionHandler {
 
     private ResponseEntity<Object> makeErrorResponseEntity(final String errorDescription) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                .body(new io.ratel.managesystem.common.exception.ErrorResponse(HttpStatus.BAD_REQUEST.toString(), errorDescription));
+                .body(new ErrorResponse(HttpStatus.BAD_REQUEST.toString(), errorDescription));
     }
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<io.ratel.managesystem.common.exception.ErrorResponse> handleException(Exception e) {
+    public ResponseEntity<ErrorResponse> handleException(Exception e) {
         log.error("error: ", e);
-        io.ratel.managesystem.common.exception.ErrorResponse errorResponse = new io.ratel.managesystem.common.exception.ErrorResponse("500", "에러가 발생했습니다.");
+        ErrorResponse errorResponse = new ErrorResponse("500", "에러가 발생했습니다.");
         return ResponseEntity.internalServerError().body(errorResponse);
     }
 
     @ExceptionHandler({io.ratel.managesystem.common.exception.BusinessException.class})
-    public ResponseEntity<io.ratel.managesystem.common.exception.ErrorResponse> handleRestApiException(final BusinessException exception) {
+    public ResponseEntity<ErrorResponse> handleRestApiException(final BusinessException exception) {
         log.warn("BusinessException occur: ", exception);
         return this.makeErrorResponseEntity(exception.getErrorResult());
     }
 
-    private ResponseEntity<io.ratel.managesystem.common.exception.ErrorResponse> makeErrorResponseEntity(final BusinessErrorResult errorResult) {
+    private ResponseEntity<ErrorResponse> makeErrorResponseEntity(final BusinessErrorResult errorResult) {
         return ResponseEntity.status(errorResult.getHttpStatus())
                 .body(new ErrorResponse(errorResult.name(), errorResult.getMessage()));
     }

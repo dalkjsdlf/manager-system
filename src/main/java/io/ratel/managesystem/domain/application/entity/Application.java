@@ -1,6 +1,6 @@
 package io.ratel.managesystem.domain.application.entity;
 
-import io.ratel.managesystem.common.entity.AuditableFields;
+import io.ratel.managesystem.common.persistence.entity.AuditableFields;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
